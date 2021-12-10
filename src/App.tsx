@@ -1,45 +1,43 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Details from "./pages/Details";
-import Home from "./pages/Home";
-import IndexPortofolio from "./pages/IndexPortofolio";
+import ArticleDetails from "./pages/blog/ArticleDetails";
+import Article from "./pages/blog/Article";
 import Error from "./pages/Error";
-
-// <!-- FontAwesome JS -->
-// import "./assets/fontawesome/js/all.js";
-
-// <!-- Global CSS -->
-import "./assets/plugins/bootstrap/css/bootstrap.min.css";
-
-// <!-- github calendar css -->
-import "./assets/plugins/github-calendar/dist/github-calendar-responsive.css";
-
-// <!-- github activity css -->
-import "./assets/plugins/github-activity/src/github-activity.css";
-
-// <!-- Theme CSS -->
-import "./assets/css/styles.css";
-// <!-- END: CUSTOM STYLE PROVIDE BY DEVBLOG -->
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer/Footer";
+import Category from "./pages/blog/Category";
+import CategoryDetails from "./pages/blog/CategoryDetails";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
       <Router>
+        {/*<!-- Navigation -->*/}
+        <Navbar />
+        {/* ----------- */}
+
         <Routes>
-          <Route path="/" element={<IndexPortofolio />}></Route>
-          <Route path="/blog" element={<Home />}>
-            <Route path="articles/" element={<Details />}>
-              <Route path="articles/:articlesId" element={<Details />}></Route>
-            </Route>
-            <Route path="categories/" element={<Details />}>
+          <Route path="/" element={<Home />}>
+            <Route path="blog" element={<Article />}>
               <Route
-                path="categories/:categoriesId"
-                element={<Details />}
+                path="articles/:articlesId"
+                element={<ArticleDetails />}
               ></Route>
+              <Route path="categories" element={<Category />}>
+                <Route
+                  path=":categoriesId"
+                  element={<CategoryDetails />}
+                ></Route>
+              </Route>
             </Route>
+            <Route path="*" element={<Error />}></Route>
           </Route>
-          <Route path="*" element={<Error />}></Route>
         </Routes>
+
+        {/*<!-- Footer -->*/}
+        <Footer />
+        {/* ----------- */}
       </Router>
     </>
   );
