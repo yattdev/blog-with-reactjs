@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import "./App.css";
 import ArticleDetails from "./pages/blog/ArticleDetails";
 import Article from "./pages/blog/Article";
@@ -9,37 +9,37 @@ import Category from "./pages/blog/Category";
 import CategoryDetails from "./pages/blog/CategoryDetails";
 
 function App() {
-  return (
-    <>
-      <Router>
-        {/*<!-- Navigation -->*/}
-        <Navbar />
-        {/* ----------- */}
+  let element = useRoutes([
+    // These are the same as the props you provide to <Route>
+    { path: "/", element: <Article /> },
 
-        <Routes>
-          <Route path="/" element={<Article />}>
-            <Route path="blog" element={<Article />}>
-              <Route
-                path="articles/:articlesId"
-                element={<ArticleDetails />}
-              ></Route>
-              <Route path="categories" element={<Category />}>
-                <Route
-                  path=":categoriesId"
-                  element={<CategoryDetails />}
-                ></Route>
-              </Route>
-            </Route>
-            <Route path="*" element={<Error />}></Route>
-          </Route>
-        </Routes>
+    // Article urls
+    { path: "articles", element: <Article /> },
+    { path: "articles/:articleId", element: <ArticleDetails /> },
 
-        {/*<!-- Footer -->*/}
-        <Footer />
-        {/* ----------- */}
-      </Router>
-    </>
-  );
+    // Category urls
+    { path: "categories", element: <Category /> },
+    { path: "categories/:id", element: <CategoryDetails /> },
+
+    // Not found routes work as you'd expect
+    { path: "*", element: <Error /> },
+  ]);
+
+  // The returned element will render the entire element
+  // hierarchy with all the appropriate context it needs
+  return element;
 }
 
-export default App;
+const AppWrapper = () => {
+  return (
+    <Router>
+      {/* Navbar */}
+      <Navbar />
+      <App />
+      {/* Footer */}
+      <Footer />
+    </Router>
+  );
+};
+
+export default AppWrapper;
