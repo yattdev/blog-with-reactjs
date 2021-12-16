@@ -33,7 +33,7 @@ const useFetch = (url) => {
         }
         console.log(error.config);
       });
-  }, [url]);
+  }, [url, setItems, setLoading]);
 
   useEffect(() => {
     getItems();
