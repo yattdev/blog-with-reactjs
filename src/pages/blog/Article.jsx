@@ -1,14 +1,14 @@
 // import React from "react";
 import Header from "../../components/Header";
-import Contents from "../../components/Contents";
+import ItemList from "../../components/blog/article/ItemList";
 
 const Article = () => {
   return (
     <>
       {/*<!-- Header -->*/}
       <Header />
-      {/*<!-- contents -->*/}
-      <Contents />
+      {/*<!-- ItemList -->*/}
+      <ItemList />
     </>
   );
 };
