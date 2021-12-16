@@ -15,10 +15,10 @@ const ArticleDetails = () => {
     return <center>Loading...</center>;
   }
 
-  if (!items) {
+  if (!items || !items.body) {
     return (
       <>
-        <center>Cette article n'exist pas.</center>
+        <center>Cette article n'est pas disponible.</center>
       </>
     );
   }
