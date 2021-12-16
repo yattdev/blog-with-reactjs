@@ -10,7 +10,7 @@ const Header = ({ image, title, sub_title }) => {
             <div className="col-md-10 col-lg-8 col-xl-8">
               <div className="site-heading">
                 <h1>{title}</h1>
-                <h2 class="subheading">{sub_title}</h2>
+                <h2 className="subheading">{sub_title}</h2>
               </div>
             </div>
           </div>
