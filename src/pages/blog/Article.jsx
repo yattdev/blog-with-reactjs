@@ -1,6 +1,6 @@
 // import React from "react";
 import Header from "../../components/Header";
-import ItemList from "../../components/blog/article/ItemList";
+import PaginatedItems from "../../components/utils/PaginatedItems";
 
 const Article = () => {
   return (
@@ -8,7 +8,7 @@ const Article = () => {
       {/*<!-- Header -->*/}
       <Header />
       {/*<!-- ItemList -->*/}
-      <ItemList />
+      <PaginatedItems itemsPerPage={1} />
     </>
   );
 };
