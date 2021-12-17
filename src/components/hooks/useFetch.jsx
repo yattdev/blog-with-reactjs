@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import axiosInstance from "./axios";
-import { useGlobalContext } from "./context";
+import axiosInstance from "../../axios";
+import { useGlobalContext } from "../../context";
 
 const useFetch = (url) => {
   const { setLoading } = useGlobalContext();
