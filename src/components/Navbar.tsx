@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 // import React from "react";
 
 const Navbar = () => {
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    alert("Coming soon!");
+  };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark" id="mainNav">
+      <nav className="navbar navbar-expand-lg" id="mainNav">
         <div className="container px-4 px-lg-5">
           <Link className="navbar-brand" to="/articles">
             STARTER
@@ -30,7 +34,12 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="categories">
+                {/* Categories that not have a content yet */}
+                <Link
+                  className="nav-link px-lg-3 py-3 py-lg-4"
+                  to="#"
+                  onClick={handleClick}
+                >
                   Categories
                 </Link>
               </li>
