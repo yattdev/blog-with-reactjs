@@ -1,4 +1,6 @@
-import React from "react";
+// import React from "react";
+
+import { Link } from "react-router-dom";
 
 const FooterBottom = () => {
   return (
@@ -7,26 +9,22 @@ const FooterBottom = () => {
         <div className="row">
           <div className="copyright col-12 col-md-6">
             Blog Copyright ©
-            <a
-              className="text-link"
-              href="https://themes.3rdwavemedia.com/"
-              target="_blank"
-            >
+            <a className="text-link" href="https://alassane.yatt.tech/">
               Yattara Alassane
             </a>
           </div>
           <div className="legal col-12 col-md-6 text-md-end">
             <ul className="list-inline mb-0">
               <li className="list-inline-item">
-                <a className="text-link" href="#">
+                <Link className="text-link" to="#">
                   Privacy
-                </a>
+                </Link>
               </li>
               <li className="list-inline-item">|</li>
               <li className="list-inline-item">
-                <a className="text-link" href="#">
+                <Link className="text-link" to="#">
                   Terms of Services
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
