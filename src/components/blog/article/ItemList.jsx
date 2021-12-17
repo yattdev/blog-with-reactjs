@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "../../../context";
-import useFetch from "../../hooks/useFetch";
 import Item from "./Item";
 
-const ItemList = () => {
+const ItemList = ({ items }) => {
   const [articles, setArticles] = useState([]);
-  const { items } = useFetch("articles");
   const { loading } = useGlobalContext();
   // console.log(items);
 
