@@ -25,7 +25,10 @@ const SocialIcons = () => {
           </a>
         </li>
         <li className="list-inline-item">
-          <a className="text-link" href="https://www.linkedin.com/in/alassane-yattara-587477166/">
+          <a
+            className="text-link"
+            href="https://www.linkedin.com/in/alassane-yattara-587477166/"
+          >
             <svg
               className="svg-inline--fa fa-linkedin fa-w-16 fa-fw"
               aria-hidden="true"
@@ -46,7 +49,7 @@ const SocialIcons = () => {
         </li>
         <li className="list-inline-item">
           <a className="text-link" href="https://alassane.yatt.tech/">
-                <i class="fas fa-briefcase"></i>
+            <i className="fas fa-briefcase"></i>
           </a>
         </li>
       </ul>
