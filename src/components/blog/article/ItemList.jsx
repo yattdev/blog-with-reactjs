@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "../../../context";
-import useFetch from "../../../useFetch";
+import useFetch from "../../hooks/useFetch";
 import Item from "./Item";
 
 const Contents = () => {
