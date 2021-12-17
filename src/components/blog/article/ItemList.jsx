@@ -48,12 +48,6 @@ const ItemList = ({ items }) => {
             {articles.map((item) => {
               return <Item key={item.id} {...item} />;
             })}
-            {/* <!-- Pager-->*/}
-            <div className="d-flex justify-content-end mb-4">
-              <a className="btn btn-primary text-uppercase" href="#!">
-                Tout les posts →
-              </a>
-            </div>
           </div>
         </div>
       </div>
