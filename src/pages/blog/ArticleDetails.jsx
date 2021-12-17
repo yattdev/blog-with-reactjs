@@ -2,9 +2,9 @@
 
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
-import useFetch from "../../useFetch";
 import Parse from "html-react-parser";
 import { useGlobalContext } from "../../context";
+import useFetch from "../../components/hooks/useFetch";
 
 const ArticleDetails = () => {
   const { articleUID } = useParams();
