@@ -23,7 +23,7 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            Menu
+            Menu &nbsp;
             <i className="fas fa-bars"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
