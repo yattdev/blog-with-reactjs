@@ -5,7 +5,7 @@ import { useGlobalContext } from "../../../context";
 import useFetch from "../../hooks/useFetch";
 import Item from "./Item";
 
-const Contents = () => {
+const ItemList = () => {
   const [articles, setArticles] = useState([]);
   const { items } = useFetch("articles");
   const { loading } = useGlobalContext();
@@ -63,4 +63,4 @@ const Contents = () => {
   );
 };
 
-export default Contents;
+export default ItemList;
