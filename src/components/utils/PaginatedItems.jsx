@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import ItemList from "../blog/article/ItemList";
-import useFetch from "../hooks/useFetch";
 
 // Example items, to simulate fetching from another resources.
 
-function PaginatedItems({ itemsPerPage }) {
-  const { items } = useFetch("articles");
+function PaginatedItems({ itemsPerPage, items }) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -18,8 +16,10 @@ function PaginatedItems({ itemsPerPage }) {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
     // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    setCurrentItems(items.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(items.length / itemsPerPage));
+    if (items && items.length > 0) {
+      setCurrentItems(items.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(items.length / itemsPerPage));
+    }
   }, [itemOffset, itemsPerPage, items]);
 
   // Invoke when user click to request another page.
