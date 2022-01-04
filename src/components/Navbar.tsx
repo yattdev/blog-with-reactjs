@@ -35,11 +35,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 {/* Categories that not have a content yet */}
-                <Link
-                  className="nav-link px-lg-3 py-3 py-lg-4"
-                  to="#"
-                  onClick={handleClick}
-                >
+                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="categories">
                   Categories
                 </Link>
               </li>
