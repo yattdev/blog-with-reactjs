@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import ItemList from "../blog/article/ItemList";
 
 // Example items, to simulate fetching from another resources.
 
-function PaginatedItems({ itemsPerPage, items }) {
+function PaginatedItems({ ItemList, itemsPerPage, items }) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -31,9 +30,21 @@ function PaginatedItems({ itemsPerPage, items }) {
     setItemOffset(newOffset);
   };
 
+  if (!items && items.length === 0) {
+    return (
+      <>
+        <center>
+          <em>
+            <h3>Loading ...</h3>
+          </em>
+        </center>
+      </>
+    );
+  }
+
   return (
     <>
-      <ItemList items={currentItems} />
+      {<ItemList items={currentItems} />}
 
       <div className="d-flex justify-content-center mb-4">
         <ReactPaginate
