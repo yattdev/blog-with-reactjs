@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import PaginatedItems from "../../components/utils/PaginatedItems";
 import HeaderImage from "../../assets/img/website_progess.png";
 import useFetch from "../../components/hooks/useFetch";
-import ItemList from "../../components/blog/article/ItemList";
+import ArticleItemList from "../../components/blog/article/ArticleItemList";
 import { useState, useEffect } from "react";
 
 const Article = () => {
@@ -36,9 +36,9 @@ const Article = () => {
         sub_title="Technologie blog, for developers and Entrepreneurs"
         image={HeaderImage}
       />
-      {/*<!-- ItemList -->*/}
+      {/*<!-- ArticleItemList -->*/}
       <PaginatedItems
-        ItemList={ItemList}
+        ItemList={ArticleItemList}
         itemsPerPage={3}
         items={articlesList}
       />

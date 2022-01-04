@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useGlobalContext } from "../../../context";
 import ArticleItemDetails from "./ArticleItemDetails";
 
-const ItemList = ({ items }) => {
+const ArticleItemList = ({ items }) => {
   const [articles, setArticles] = useState([]);
   const { loading } = useGlobalContext();
   // console.log(items);
@@ -55,4 +55,4 @@ const ItemList = ({ items }) => {
   );
 };
 
-export default ItemList;
+export default ArticleItemList;
