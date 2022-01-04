@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "../../../context";
-import Item from "./Item";
+import ArticleItemDetails from "./ArticleItemDetails";
 
 const ItemList = ({ items }) => {
   const [articles, setArticles] = useState([]);
@@ -46,7 +46,7 @@ const ItemList = ({ items }) => {
           <div className="col-md-10 col-lg-8 col-xl-7">
             {/* <!-- Post preview-->*/}
             {articles.map((item) => {
-              return <Item key={item.id} {...item} />;
+              return <ArticleItemDetails key={item.id} {...item} />;
             })}
           </div>
         </div>

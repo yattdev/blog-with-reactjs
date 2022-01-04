@@ -3,7 +3,13 @@ import Moment from "moment";
 
 import { Link } from "react-router-dom";
 
-const Item = ({ id, title, category, author, date_published }) => {
+const ArticleItemDetails = ({
+  id,
+  title,
+  category,
+  author,
+  date_published,
+}) => {
   Moment.locale("fr");
   return (
     <>
@@ -24,4 +30,4 @@ const Item = ({ id, title, category, author, date_published }) => {
   );
 };
 
-export default Item;
+export default ArticleItemDetails;
