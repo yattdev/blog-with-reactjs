@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 // import React from "react";
 
 const Navbar = () => {
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    alert("Coming soon!");
-  };
   return (
     <>
       <nav className="navbar navbar-expand-lg" id="mainNav">

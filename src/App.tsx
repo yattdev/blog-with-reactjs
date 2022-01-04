@@ -6,7 +6,7 @@ import Error from "./pages/Error";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer/Footer";
 import Category from "./pages/blog/Category";
-import CategoryDetails from "./pages/blog/CategoryDetails";
+// import CategoryDetails from "./pages/blog/CategoryDetails";
 
 function App() {
   let element = useRoutes([
@@ -19,7 +19,7 @@ function App() {
 
     // Category urls
     { path: "categories", element: <Category /> },
-    { path: "categories/:id", element: <CategoryDetails /> },
+    { path: "categories/:categoryUID", element: <Article /> },
 
     // Not found routes work as you'd expect
     { path: "*", element: <Error /> },
