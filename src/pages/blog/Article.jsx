@@ -2,8 +2,10 @@
 import Header from "../../components/Header";
 import PaginatedItems from "../../components/utils/PaginatedItems";
 import HeaderImage from "../../assets/img/website_progess.png";
+import useFetch from "../../components/hooks/useFetch";
 
 const Article = () => {
+  const { articlesList } = useFetch("articles");
   return (
     <>
       {/*<!-- Header -->*/}
@@ -13,7 +15,7 @@ const Article = () => {
         image={HeaderImage}
       />
       {/*<!-- ItemList -->*/}
-      <PaginatedItems itemsPerPage={3} />
+      <PaginatedItems itemsPerPage={3} items={articlesList} />
     </>
   );
 };
