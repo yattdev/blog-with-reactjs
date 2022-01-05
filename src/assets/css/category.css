@@ -1,6 +1,6 @@
-body{
+.itemsList{
     background-color: #eee;
-    margin-top:20px;
+    margin-top: -100px;
 }
 .media.media-news {
     display: -webkit-box;
