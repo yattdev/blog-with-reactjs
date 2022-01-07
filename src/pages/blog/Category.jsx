@@ -39,7 +39,7 @@ const Category = () => {
       {/*<!-- CategoryItemList -->*/}
       <PaginatedItems
         ItemList={CategoryItemList}
-        itemsPerPage={3}
+        itemsPerPage={4}
         items={categoriesList}
       />
     </>
