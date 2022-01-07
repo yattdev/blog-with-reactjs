@@ -53,7 +53,7 @@ const Article = ({ url = "articles" }) => {
       {/*<!-- ArticleItemList -->*/}
       <PaginatedItems
         ItemList={ArticleItemList}
-        itemsPerPage={3}
+        itemsPerPage={6}
         items={articlesList}
       />
     </>
