@@ -4,18 +4,26 @@ import { useEffect, useState } from "react";
 import { useGlobalContext } from "../../../context";
 import CategoryItemDetails from "./CategoryItemDetails";
 
+import "../../../assets/css/category.css";
+
 const CategoryItemList = ({ items }) => {
   const [categories, setCategories] = useState([]);
   const { loading } = useGlobalContext();
   // console.log(items);
 
+  const convert_items_to_2D_array = (array) => {
+    var new2DArray = [];
+    while (array.length > 0) {
+      new2DArray.push(array.splice(0, 2));
+    }
+    setCategories(new2DArray);
+  };
+
   useEffect(() => {
     if (items) {
-      setCategories(() => {
-        return items;
-      });
+      convert_items_to_2D_array(items);
     }
-  }, [items, categories]);
+  }, [items]);
 
   if (loading) {
     return (
@@ -38,18 +46,29 @@ const CategoryItemList = ({ items }) => {
     );
   }
 
+  console.log(categories);
   return (
     <>
       {/*<!-- Main Content-->*/}
-      <div className="container px-4 px-lg-5">
-        <div className="row gx-4 gx-lg-5 justify-content-center">
-          <div className="col-md-10 col-lg-8 col-xl-7">
-            {/* <!-- Post preview-->*/}
-            {categories.map((item) => {
-              return <CategoryItemDetails key={item.id} {...item} />;
-            })}
-          </div>
-        </div>
+      <div className="container itemsList mb-5 pb-5 ps-lg-5">
+        {categories.map((item, index) => {
+          console.log(index);
+          return (
+            <>
+              <div
+                className={
+                  index !== 0 ? "row no-gutters mt-4" : "row no-gutters"
+                }
+              >
+                <CategoryItemDetails
+                  key={index}
+                  firstItem={item[0] ? item[0] : null}
+                  secondItem={item[1] ? item[1] : null}
+                />
+              </div>
+            </>
+          );
+        })}
       </div>
     </>
   );
