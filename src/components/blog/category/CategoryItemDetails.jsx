@@ -4,9 +4,12 @@ import Moment from "moment";
 import { Link } from "react-router-dom";
 
 const Item = ({ firstItem, secondItem }) => {
+  // change locale value, that affect time display
   Moment.locale("fr");
+
   return (
     <>
+      {/*Display item only if it exist*/}
       {firstItem && (
         <div className="col-xl-6 col-12 mb-5 mb-xl-0">
           <div className="media media-news">
@@ -31,6 +34,7 @@ const Item = ({ firstItem, secondItem }) => {
         </div>
       )}
 
+      {/*Display item only if it exist*/}
       {secondItem && (
         <div className="col-xl-6 col-12">
           <div className="media media-news">
