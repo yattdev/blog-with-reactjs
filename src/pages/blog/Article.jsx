@@ -6,23 +6,22 @@ import useFetch from "../../components/hooks/useFetch";
 import ArticleItemList from "../../components/blog/article/ArticleItemList";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Loading from "../../components/utils/Loading";
+import NoItemMessage from "../../components/utils/NoItemMessage";
+import { useGlobalContext } from "../../context";
 
-const Article = ({ props = null }) => {
+const Article = ({ url = "articles" }) => {
   const [articlesList, setArticlesList] = useState([]);
-  const { items } = useFetch("articles");
+  const { loading } = useGlobalContext();
+  const { items } = useFetch(url);
   const mounted = useRef(false);
 
   const update_articlesList = useCallback(async () => {
-    if (mounted.current && props) {
-      setArticlesList(() => {
-        return props;
-      });
-    } else if (mounted.current) {
+    if (mounted.current) {
       setArticlesList(() => {
         return items;
       });
     }
-  }, [items, props]);
+  }, [items]);
 
   useEffect(() => {
     mounted.current = true; // Will set it to true on mount ...
@@ -32,10 +31,17 @@ const Article = ({ props = null }) => {
     }; // ... and to false on unmount
   }, [update_articlesList]);
 
-  if (articlesList.length === 0) {
+  // display loading indicator while fetching data
+  if (loading) {
     return <Loading />;
   }
 
+  // Display this msg when there is no data available
+  if (articlesList.length === 0) {
+    return <NoItemMessage />;
+  }
+
+  // Display item list when available
   return (
     <>
       {/*<!-- Header -->*/}
