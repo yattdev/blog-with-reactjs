@@ -4,28 +4,31 @@ import PaginatedItems from "../../components/utils/PaginatedItems";
 import HeaderImage from "../../assets/img/website_progess.png";
 import useFetch from "../../components/hooks/useFetch";
 import ArticleItemList from "../../components/blog/article/ArticleItemList";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import Loading from "../../components/utils/Loading";
 
-const Article = () => {
+const Article = ({ props = null }) => {
   const [articlesList, setArticlesList] = useState([]);
   const { items } = useFetch("articles");
 
+  const update_articlesList = useCallback(() => {
+    if (props) {
+      setArticlesList(() => {
+        return props;
+      });
+    } else {
+      setArticlesList(() => {
+        return items;
+      });
+    }
+  }, [items, props]);
+
   useEffect(() => {
-    setArticlesList(() => {
-      return items;
-    });
-  }, [items]);
+    update_articlesList();
+  }, [update_articlesList]);
 
   if (articlesList.length === 0) {
-    return (
-      <>
-        <center>
-          <em>
-            <h3>Loading ...</h3>
-          </em>
-        </center>
-      </>
-    );
+    return <Loading />;
   }
 
   return (
