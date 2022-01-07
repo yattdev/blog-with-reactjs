@@ -4,19 +4,20 @@ import PaginatedItems from "../../components/utils/PaginatedItems";
 import HeaderImage from "../../assets/img/website_progess.png";
 import useFetch from "../../components/hooks/useFetch";
 import ArticleItemList from "../../components/blog/article/ArticleItemList";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Loading from "../../components/utils/Loading";
 
 const Article = ({ props = null }) => {
   const [articlesList, setArticlesList] = useState([]);
   const { items } = useFetch("articles");
+  const mounted = useRef(false);
 
-  const update_articlesList = useCallback(() => {
-    if (props) {
+  const update_articlesList = useCallback(async () => {
+    if (mounted.current && props) {
       setArticlesList(() => {
         return props;
       });
-    } else {
+    } else if (mounted.current) {
       setArticlesList(() => {
         return items;
       });
@@ -24,7 +25,11 @@ const Article = ({ props = null }) => {
   }, [items, props]);
 
   useEffect(() => {
+    mounted.current = true; // Will set it to true on mount ...
     update_articlesList();
+    return () => {
+      mounted.current = false;
+    }; // ... and to false on unmount
   }, [update_articlesList]);
 
   if (articlesList.length === 0) {
