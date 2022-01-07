@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import Loading from "./Loading";
 
 // Example items, to simulate fetching from another resources.
 
@@ -33,11 +34,7 @@ function PaginatedItems({ ItemList, itemsPerPage, items }) {
   if (!items && items.length === 0) {
     return (
       <>
-        <center>
-          <em>
-            <h3>Loading ...</h3>
-          </em>
-        </center>
+        <Loading />
       </>
     );
   }
