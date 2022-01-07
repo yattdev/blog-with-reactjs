@@ -3,17 +3,54 @@ import Moment from "moment";
 
 import { Link } from "react-router-dom";
 
-const Item = ({ id, name, description, image }) => {
+const Item = ({ firstItem, secondItem }) => {
   Moment.locale("fr");
   return (
     <>
-      <div className="post-preview">
-        <Link to={`${"/categories/" + id}`}>
-          <h2 className="post-name">{name}</h2>
-        </Link>
-      </div>
-      {/* <!-- Divider-->*/}
-      <hr className="my-4" />
+      {firstItem && (
+        <div className="col-xl-6 col-12 mb-5 mb-xl-0">
+          <div className="media media-news">
+            <div className="media-img">
+              <img
+                src="https://via.placeholder.com/350x280/FFB6C1/000000"
+                alt="Generic placeholder"
+              />
+            </div>
+            <div className="media-body">
+              <span className="media-date">Number of articles</span>
+              <h5 className="mt-0 sep">{firstItem.name}</h5>
+              <p>{firstItem.description.substr(0, 150)}</p>
+              <Link
+                to={"/articles/" + firstItem}
+                className="btn btn-transparent"
+              >
+                View More
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {secondItem && (
+        <div className="col-xl-6 col-12">
+          <div className="media media-news">
+            <div className="media-img">
+              <img
+                src="https://via.placeholder.com/350x280/87CEFA/000000"
+                alt="Generic placeholder"
+              />
+            </div>
+            <div className="media-body">
+              <span className="media-date">Number of articles</span>
+              <h5 className="mt-0 sep"> {secondItem.name}</h5>
+              <p>{secondItem.description.substr(0, 150)}</p>
+              <Link to={"yatt" + secondItem} className="btn btn-transparent">
+                View More
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
