@@ -15,7 +15,7 @@ function App() {
 
     // Article urls
     { path: "articles", element: <Article /> },
-    { path: "articles/:articleUID", element: <ArticleDetails /> },
+    { path: "articles/:articleName/:articleUID", element: <ArticleDetails /> },
 
     // Category urls
     { path: "categories", element: <Category /> },
