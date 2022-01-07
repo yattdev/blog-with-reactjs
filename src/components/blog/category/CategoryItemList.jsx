@@ -12,6 +12,8 @@ const CategoryItemList = ({ items }) => {
   const { loading } = useGlobalContext();
   // console.log(items);
 
+  // This function is to convert array 1D to 2D, to display list of categories
+  // 2 by row
   const convert_items_to_2D_array = (array) => {
     var new2DArray = [];
     while (array.length > 0) {
@@ -26,6 +28,7 @@ const CategoryItemList = ({ items }) => {
     }
   }, [items]);
 
+  // display loading while get data
   if (loading) {
     return (
       <>
@@ -34,6 +37,7 @@ const CategoryItemList = ({ items }) => {
     );
   }
 
+  // display this msg, if there is no data yet.
   if (categories.length === 0) {
     return (
       <section className="container px-4 px-lg-5">
@@ -47,7 +51,7 @@ const CategoryItemList = ({ items }) => {
     );
   }
 
-  console.log(categories);
+  // Display list of categories
   return (
     <>
       {/*<!-- Main Content-->*/}
