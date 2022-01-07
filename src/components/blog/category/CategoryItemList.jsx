@@ -5,6 +5,7 @@ import { useGlobalContext } from "../../../context";
 import CategoryItemDetails from "./CategoryItemDetails";
 
 import "../../../assets/css/category.css";
+import Loading from "../../utils/Loading";
 
 const CategoryItemList = ({ items }) => {
   const [categories, setCategories] = useState([]);
@@ -28,7 +29,7 @@ const CategoryItemList = ({ items }) => {
   if (loading) {
     return (
       <>
-        <center>Loading...</center>
+        <Loading />
       </>
     );
   }
