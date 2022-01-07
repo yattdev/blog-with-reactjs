@@ -21,7 +21,7 @@ const Item = ({ firstItem, secondItem }) => {
               <h5 className="mt-0 sep">{firstItem.name}</h5>
               <p>{firstItem.description.substr(0, 150)}</p>
               <Link
-                to={"/articles/" + firstItem}
+                to={`/categories/${firstItem.name}/${firstItem.id}`}
                 className="btn btn-transparent"
               >
                 View More
@@ -44,7 +44,10 @@ const Item = ({ firstItem, secondItem }) => {
               <span className="media-date">Number of articles</span>
               <h5 className="mt-0 sep"> {secondItem.name}</h5>
               <p>{secondItem.description.substr(0, 150)}</p>
-              <Link to={"yatt" + secondItem} className="btn btn-transparent">
+              <Link
+                to={`/categories/${secondItem.name}/${secondItem.id}`}
+                className="btn btn-transparent"
+              >
                 View More
               </Link>
             </div>
