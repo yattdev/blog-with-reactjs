@@ -6,11 +6,11 @@ import CategoryItemDetails from "./CategoryItemDetails";
 
 import "../../../assets/css/category.css";
 import Loading from "../../utils/Loading";
+import NoItemMessage from "../../utils/NoItemMessage";
 
 const CategoryItemList = ({ items }) => {
   const [categories, setCategories] = useState([]);
   const { loading } = useGlobalContext();
-  // console.log(items);
 
   // This function is to convert array 1D to 2D, to display list of categories
   // 2 by row
@@ -40,14 +40,9 @@ const CategoryItemList = ({ items }) => {
   // display this msg, if there is no data yet.
   if (categories.length === 0) {
     return (
-      <section className="container px-4 px-lg-5">
-        {/* cart header */}
-        <header>
-          <h4 className="row gx-4 gx-lg-5 justify-content-center">
-            Sorry! No post yet
-          </h4>
-        </header>
-      </section>
+      <>
+        <NoItemMessage msg={"Sorry, no categories found"} />
+      </>
     );
   }
 
